@@ -437,7 +437,7 @@ arr.length;
 
 注意：**假如给arr.length赋值，数组大小就会发生变化，如果赋值过小，元素就会丢失**
 
-> 2、indexOf，通过元素获得下表索引
+> 2、indexOf	通过元素获得下表索引
 
 ```javascript
 arr.indexOf(2);
@@ -445,7 +445,13 @@ arr.indexOf(2);
 
 字符串的1和数字1是不同的
 
-> 3、slice()	截取Array的一部分，返回一个新的数组，类似于String中的subString
+> 3、slice(start, end)	截取Array的一部分，返回一个新的数组，类似于String中的subString
+
+| 参数  | 描述                                                         |
+| :---- | :----------------------------------------------------------- |
+| start | 必需。规定从何处开始选取。如果是负数，那么它规定从数组尾部开始算起的位置。也就是说，-1 指最后一个元素，-2 指倒数第二个元素，以此类推。 |
+| end   | 可选。规定从何处结束选取。该参数是数组片断结束处的数组下标。如果没有指定该参数，那么切分的数组包含从 start 到数组结束的所有元素。如果这个参数是负数，那么它规定的是从数组尾部开始算起的元素。 |
+
 
 > 4、push()、pop()
 
@@ -530,7 +536,7 @@ var person = {
 };
 ```
 
-js中的对象，{...}表示一个对象，键值对描述属性xxx:xxx，多个属性之间使用逗号隔开，最后一个属性不加逗号。
+js中的对象，{...}表示一个对象，键值对描述属性xxx: xxx，多个属性之间使用逗号隔开，最后一个属性不加逗号。
 
 **JavaScript中所有的键都是字符串，值是任意对象！**
 
@@ -594,12 +600,12 @@ js中的对象，{...}表示一个对象，键值对描述属性xxx:xxx，多个
 > if判断
 
 ```javascript
-let age=3;
-if(age<=3){
+let age = 3;
+if (age <= 3) {
     alert('haha');
-}else if(age>3&&age<5){
+} else if(age > 3 && age < 5) {
     alert('kua');
-}else{
+} else {
     alert('lili');
 }
 ```
@@ -609,23 +615,23 @@ if(age<=3){
 while循环，尽量避免程序死循环
 
 ```javascript
-while(age<100){
-    age=age+1;
+while (age < 100) {
+    age = age + 1;
     console.log(age);
 }
 
 do{
-    age=age+1;
+    age = age + 1;
     console.log(age);
-}while(age<100)
+} while (age < 100)
 ```
 
 for循环
 
 ```JavaScript
-var age=[12,35,26,45,38];
+var age=[12, 35, 26, 45, 38];
 
-for (let i=0;i<age.length;i++){
+for (let i = 0; i < age.length; i++){
     console.log(age[i]);
 }
 
@@ -639,7 +645,7 @@ forEach循环
 > ES5.1引入的
 
 ```JavaScript
-var age=[12,35,26,45,38];
+var age = [12, 35, 26, 45, 38];
 //函数
 age.forEach(function (value) {
     console.log(value)
@@ -667,7 +673,7 @@ Map:
 ```javascript
 //SE6
 //学生的成绩，学生的名字
-let map=new Map([['tom',100],['jack',90],['haha',88]]);
+let map = new Map([['tom',100], ['jack',90], ['haha',88]]);
 let name = map.get('tom');//通过key获得value
 map.set('admin',60);	//新增或修改
 map.delete('tom');		//删除
@@ -695,7 +701,7 @@ console.log(set);
 遍历数组
 
 ```JavaScript
-let arr=[9,6,7,2];
+let arr = [9,6,7,2];
 for (let number of arr) {
     console.log(number);
 }
@@ -704,7 +710,7 @@ for (let number of arr) {
 遍历Map
 
 ```JavaScript
-let map=new Map([['tom',100],['jack',90],['haha',88]]);
+let map = new Map([['tom',100],['jack',90],['haha',88]]);
 for (let mapElement of map) {
     console.log(mapElement);
 }
@@ -713,7 +719,7 @@ for (let mapElement of map) {
 遍历Set
 
 ```javascript
-let set=new Set([3,1,1,2,6]);//set可以去重
+let set = new Set([3,1,1,2,6]);//set可以去重
 for (let number of set) {
     console.log(number);
 }
@@ -730,10 +736,10 @@ for (let number of set) {
 绝对值函数
 
 ```javascript
-function abs(x){
-    if(x>=0){
+function abs(x) {
+    if (x >= 0) {
         return x;
-    }else{
+    } else {
         return -x;
     }
 }
@@ -746,10 +752,10 @@ function abs(x){
 > 定义方式二
 
 ```javascript
-var abs=function(x){
-    if(x>=0){
+var abs = function(x) {
+    if (x >= 0) {
         return x;
-    }else{
+    } else {
         return -x;
     }
 }
@@ -762,9 +768,9 @@ function(x){...}这是一个匿名函数，但是可以把结果赋值给abs，�
 > 调用函数
 
 ```javascript
-abs(10)	//10
-abs(-10)	//10
-var sum = getSum; //getSum本身是一个函数名，而函数本身在js中就是一个对象。getSum就是这个函数对象的引用.将getSum这个引用的地址赋值给sum。这时sum也指向了这个函数对象。相当于这个函数对象有两个函数名称。
+abs(10)	// 10
+abs(-10)	// 10
+var sum = getSum; // getSum本身是一个函数名，而函数本身在js中就是一个对象。getSum就是这个函数对象的引用.将getSum这个引用的地址赋值给sum。这时sum也指向了这个函数对象。相当于这个函数对象有两个函数名称。
 ```
 
 参数问题：
@@ -774,14 +780,14 @@ JavaScript可以传任意个参数，也可以不传参数
 参数进来是否存在的问题？假设不存在参数，如何规避
 
 ```JavaScript
-var abs=function(x){
-    //手动抛出异常
-    if(typeof x!=='number'){
+var abs = function(x) {
+    // 手动抛出异常
+    if (typeof x !== 'number') {
         throw 'Not a number';
     }
-    if(x>=0){
+    if (x >= 0) {
         return x;
-    }else{
+    } else {
         return -x;
     }
 }
@@ -799,7 +805,7 @@ var abs=function(x){
     for (let i = 0; i < arguments.length; i++) {
         console.log(arguments[i]);
     }
-    if(x>=0){
+    if (x >= 0 
         return x;
     }else{
         return -x;
@@ -1045,7 +1051,7 @@ var a = {
 //属性
 a.name
 
-//方法，一定要带（）
+//方法，一定要带()
 a.age()
 ```
 
